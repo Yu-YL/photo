@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+  <title>YL ❤️ JN 相簿</title>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div id="sky-icon"></div>
+  <button class="toggle-night" id="toggleNightBtn" onclick="toggleNight()">🌙</button>
+  <div class="stars" id="stars"></div>
+
+  <header>📸 YL ❤️ JN 相簿</header>
+
+  <div class="gallery">
+    <div class="photo-wrapper">
+      <img src="1.png" alt="Love memory 1">
+      <div class="heart">❤️</div>
+    </div>
+    <div class="photo-wrapper">
+      <img src="2.jpg" alt="Love memory 2">
+      <div class="heart">❤️</div>
+    </div>
+    <div class="photo-wrapper">
+      <img src="3.jpg" alt="Love memory 3">
+      <div class="heart">❤️</div>
+    </div>
+    <div class="photo-wrapper">
+      <img src="4.jpg" alt="Love memory 4">
+      <div class="heart">❤️</div>
+    </div>
+  </div>
+
+  <button class="music-toggle" id="musicBtn" aria-label="Toggle Music">
+    <span id="musicIcon">🎵</span>
+  </button>
+
+  <audio id="bgMusic" autoplay loop>
+    <source src="for JN.mp3" type="audio/mp3" />
+    Your browser does not support the audio element.
+  </audio>
+
+  <footer>
+    Made with ❤️ for JN by YL<br>
+    &copy; 2025 YL ❤️ JN Memories
+  </footer>
+
+  <script src="script.js"></script>
+</body>
+</html>

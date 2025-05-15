@@ -7,7 +7,8 @@
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles.css">
 </head>
-<body>
+<body> 
+ <body>
   <div id="sky-icon"></div>
   <button class="toggle-night" id="toggleNightBtn" onclick="toggleNight()">🌙</button>
   <div class="stars" id="stars"></div>
@@ -15,40 +16,38 @@
   <header>📸 YL ❤️ JN 相簿</header>
 
   <div class="gallery">
-    <div class="photo-wrapper">
-      <img src="1.png" alt="Love memory 1">
-      <div class="heart">❤️</div>
-    </div>
-    <div class="photo-wrapper">
-      <img src="2.jpg" alt="Love memory 2">
-      <div class="heart">❤️</div>
-    </div>
-    <div class="photo-wrapper">
-      <img src="31.jpg" alt="Love memory 3">
-      <div class="heart">❤️</div>
-    </div>
-    <div class="photo-wrapper">
-      <img src="41.jpg" alt="Love memory 4">
-      <div class="heart">❤️</div>
-    </div> 
-     <div class="photo-wrapper">
-      <img src="5.jpg" alt="Love memory 5">
-      <div class="heart">❤️</div>
+    <div class="photo-wrapper"><img src="1.png"><div class="heart"></div></div>
+    <div class="photo-wrapper"><img src="2.jpg"><div class="heart"></div></div>
+    <div class="photo-wrapper"><img src="3.jpg"><div class="heart"></div></div>
+    <div class="photo-wrapper"><img src="4.jpg"><div class="heart"></div></div> 
+    <div class="photo-wrapper"><img src="5.jpg"><div class="heart"></div></div>
   </div>
 
-  <button class="music-toggle" id="musicBtn" aria-label="Toggle Music">
-    <span id="musicIcon">🎵</span>
-  </button>
+  <div class="mini-player">
+    <img id="coverImg" src="5.jpg" alt="Cover">
+    <div class="track-text">
+      <div id="currentSong">for JN</div>
+      <div class="time-info"><span id="currentTime">0:00</span> / <span id="duration">0:00</span></div>
+    </div>
+    <div class="mini-controls">
+      <button onclick="prevSong()">&#9198</button>
+      <button onclick="togglePlayPause()" id="playPauseBtn">⏸</button>
+      <button onclick="nextSong()">&#x23ED</button>
+    </div>
+    <input type="range" id="seekBar" value="0" max="100">
+    <input type="range" id="volumeControl" min="0" max="1" step="0.01" value="1">
+  </div>
 
-  <audio id="bgMusic" autoplay loop>
-    <source src="for JN.mp3" type="audio/mp3" />
-    Your browser does not support the audio element.
-  </audio>
+  <audio id="bgMusic">
+    <source src="for JN.mp3" type="audio/mp3">
+  </audio> 
 
+ <div class="player-footer-wrap">
   <footer>
-    Made with ❤️ for JN by YL<br>
-    &copy; 2025 YL ❤️ JN Memories
+    Made with ❤️ for JN by YL
   </footer>
+</div>
+
 
   <script src="script.js"></script>
 </body>

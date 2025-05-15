@@ -1,38 +1,74 @@
-const music = document.getElementById('bgMusic');
-const musicBtn = document.getElementById('musicBtn');
-const musicIcon = document.getElementById('musicIcon');
-let playing = true;
 
-musicBtn.addEventListener('click', () => {
-  if (playing) {
-    music.pause();
-    musicIcon.textContent = '🔇';
+const audio = document.getElementById("bgMusic");
+const playPauseBtn = document.getElementById("playPauseBtn");
+const currentSongSpan = document.getElementById("currentSong");
+const coverImg = document.getElementById("coverImg");
+const seekBar = document.getElementById("seekBar");
+const volumeControl = document.getElementById("volumeControl");
+const currentTimeText = document.getElementById("currentTime");
+const durationText = document.getElementById("duration");
+
+const playlist = [
+  { name: "Happy 1st Anniversary", src: "for JN.mp3", cover: "5.jpg" },
+  { name: "3.14", src: "3.14 song.mp3", cover: "5.jpg" }, 
+  { name: "Angry JN", src: "YL0123.mp3", cover: "5.jpg" },
+];
+
+let currentIndex = 0;
+
+function loadSong(index) {
+  const song = playlist[index];
+  audio.src = song.src;
+  currentSongSpan.textContent = song.name;
+  coverImg.src = song.cover;
+  audio.play();
+  playPauseBtn.textContent = "⏸";
+}
+
+function togglePlayPause() {
+  if (audio.paused) {
+    audio.play();
+    playPauseBtn.textContent = "⏸";
   } else {
-    music.play();
-    musicIcon.textContent = '🎵';
+    audio.pause();
+    playPauseBtn.textContent = " ▶︎";
   }
-  playing = !playing;
+}
+
+function nextSong() {
+  currentIndex = (currentIndex + 1) % playlist.length;
+  loadSong(currentIndex);
+}
+
+function prevSong() {
+  currentIndex = (currentIndex - 1 + playlist.length) % playlist.length;
+  loadSong(currentIndex);
+}
+
+audio.addEventListener("ended", () => nextSong());
+
+audio.addEventListener("timeupdate", () => {
+  seekBar.value = (audio.currentTime / audio.duration) * 100;
+  currentTimeText.textContent = formatTime(audio.currentTime);
+  durationText.textContent = formatTime(audio.duration);
 });
 
-document.querySelectorAll('.photo-wrapper').forEach(wrapper => {
-  wrapper.addEventListener('click', (e) => {
-    wrapper.classList.add('liked');
-    setTimeout(() => wrapper.classList.remove('liked'), 600);
-
-    for (let i = 0; i < 10; i++) {
-      const firework = document.createElement('div');
-      firework.classList.add('firework');
-      const dx = (Math.random() - 0.5) * 200 + 'px';
-      const dy = (Math.random() - 0.5) * 200 + 'px';
-      firework.style.setProperty('--dx', dx);
-      firework.style.setProperty('--dy', dy);
-      firework.style.left = e.clientX + 'px';
-      firework.style.top = e.clientY + 'px';
-      document.body.appendChild(firework);
-      setTimeout(() => firework.remove(), 1000);
-    }
-  });
+seekBar.addEventListener("input", () => {
+  audio.currentTime = (seekBar.value / 100) * audio.duration;
 });
+
+volumeControl.addEventListener("input", () => {
+  audio.volume = volumeControl.value;
+});
+
+function formatTime(sec) {
+  const m = Math.floor(sec / 60);
+  const s = Math.floor(sec % 60).toString().padStart(2, '0');
+  return `${m}:${s}`;
+}
+
+window.addEventListener("DOMContentLoaded", () => loadSong(currentIndex));
+ 
 
 function toggleNight() {
   document.body.classList.toggle('night');
@@ -85,6 +121,37 @@ function autoSetTheme() {
     icon.style.boxShadow = '0 0 12px 4px #FFD700';
     stars.innerHTML = '';
   }
-}
+} 
 
-window.addEventListener('DOMContentLoaded', autoSetTheme);
+// 點擊圖片會跳出 💖 愛心動畫
+document.querySelectorAll('.photo-wrapper img').forEach(img => {
+  img.addEventListener('click', e => {
+    const heart = document.createElement('div');
+    heart.textContent = '💖';
+    heart.className = 'click-heart';
+    heart.style.position = 'absolute';
+    heart.style.left = `${e.offsetX}px`;
+    heart.style.top = `${e.offsetY}px`;
+    heart.style.fontSize = '24px';
+    heart.style.opacity = '1';
+    heart.style.transition = 'all 0.8s ease';
+    heart.style.pointerEvents = 'none';
+    e.currentTarget.parentElement.appendChild(heart);
+
+    setTimeout(() => {
+      heart.style.transform = 'translateY(-40px)';
+      heart.style.opacity = '0';
+    }, 10);
+
+    setTimeout(() => {
+      heart.remove();
+    }, 800);
+  });
+});
+
+
+// ✅ 記得在 DOM 載入完成時自動套用主題
+window.addEventListener('DOMContentLoaded', () => {
+  autoSetTheme();
+});
+ 

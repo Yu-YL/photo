@@ -22,22 +22,42 @@ header {
 
 .gallery {
   display: grid;
-  grid-template-columns: repeat(4, 1fr); /* 4 欄 */
+  grid-template-columns: repeat(4, 1fr); /* 預設桌機 4 欄 */
   grid-auto-rows: auto;
   gap: 16px;
-  max-width: 600px;
+  max-width: 960px;
   margin: 60px auto 100px auto;
 }
-
 
 .photo-wrapper {
   position: relative;
 }
 
 .photo-wrapper img {
-  width: 160px;
+  width: 100%;
+  height: auto;
   border-radius: 10px;
   cursor: pointer;
+}
+
+/* 響應式調整：平板 */
+@media (max-width: 768px) {
+  .gallery {
+    grid-template-columns: repeat(2, 1fr); /* 變 2 欄 */
+    max-width: 95%;
+  }
+
+  .photo-wrapper img {
+    width: 100%;
+    height: auto;
+  }
+}
+
+/* 響應式調整：手機 */
+@media (max-width: 480px) {
+  .gallery {
+    grid-template-columns: 1fr; /* 變 1 欄 */
+  }
 }
 
 .heart {
@@ -105,7 +125,6 @@ header {
   width: 500px;
   padding: 14px 16px;
   background: rgba(255, 255, 255, 0.25);
-  -webkit-backdrop-filter: blur(16px);
   border-radius: 18px;
   box-shadow: 0 8px 30px rgba(0, 0, 0, 0.15), 0 0 0 1px rgba(255,255,255,0.1);
   display: flex;
@@ -169,21 +188,4 @@ body.night .mini-player {
   width: 10%;
   accent-color: #ff4d88;
   margin-top: 4px;
-}
- 
-.player-footer-wrap {
-  position: fixed;
-  bottom: 20px;
-  right: -5%;
-  transform: translateX(-50%);
-  display: flex;
-  backdrop-filter: blur(12px);
-  border-radius: 18px;
-}
-
-footer {
-  color: #e8437c;
-  font-size: 13px;
-  line-height: 1.4;
-  white-space: nowrap;
 }

@@ -192,8 +192,8 @@ body.night .mini-player {
 
 .player-footer-wrap {
   position: fixed;
-  bottom: 20px;
-  right: -5%;
+  bottom: 10px;
+  right: 40%;
   transform: translateX(-50%);
   display: flex;
   backdrop-filter: blur(12px);

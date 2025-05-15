@@ -122,7 +122,7 @@ header {
   bottom: 24px;
   left: 50%;
   transform: translateX(-50%);
-  width: 500px;
+  width: 900px;
   padding: 14px 16px;
   background: rgba(255, 255, 255, 0.25);
   border-radius: 18px;
@@ -169,8 +169,8 @@ body.night .mini-player {
 }
 
 .mini-controls button {
-  width: 32px;
-  height: 32px;
+  width: 45px;
+  height: 40px;
   background: #ff4d88;
   color: white;
   border: none;
@@ -185,7 +185,7 @@ body.night .mini-player {
 }
 
 #seekBar, #volumeControl {
-  width: 10%;
+  width: 25%;
   accent-color: #ff4d88;
   margin-top: 4px;
 }

@@ -4,7 +4,6 @@ const playPauseBtn = document.getElementById("playPauseBtn");
 const currentSongSpan = document.getElementById("currentSong");
 const coverImg = document.getElementById("coverImg");
 const seekBar = document.getElementById("seekBar");
-const volumeControl = document.getElementById("volumeControl");
 const currentTimeText = document.getElementById("currentTime");
 const durationText = document.getElementById("duration");
 
@@ -57,9 +56,6 @@ seekBar.addEventListener("input", () => {
   audio.currentTime = (seekBar.value / 100) * audio.duration;
 });
 
-volumeControl.addEventListener("input", () => {
-  audio.volume = volumeControl.value;
-});
 
 function formatTime(sec) {
   const m = Math.floor(sec / 60);

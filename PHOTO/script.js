@@ -9,7 +9,8 @@ const durationText = document.getElementById("duration");
 
 const playlist = [
   { name: "Happy 1st Anniversary", src: "for JN.mp3", cover: "5.jpg" },
-  { name: "3.14", src: "3.14 song.mp3", cover: "5.jpg" }, 
+  { name: "3.14", src: "3.14 song.mp3", cover: "5.jpg" },  
+  { name: "5/20", src: "5.20 for jn.mp3", cover: "5.jpg" }, 
   { name: "Angry JN", src: "YL0123.mp3", cover: "5.jpg" },
 ];
 

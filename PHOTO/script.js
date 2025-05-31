@@ -7,7 +7,8 @@ const seekBar = document.getElementById("seekBar");
 const currentTimeText = document.getElementById("currentTime");
 const durationText = document.getElementById("duration");
 
-const playlist = [
+const playlist = [ 
+  { name: "OH ! baby~~", src: "oh baby.mp3", cover: "5.jpg" },
   { name: "Happy 1st Anniversary", src: "for JN.mp3", cover: "5.jpg" },
   { name: "3.14", src: "3.14 song.mp3", cover: "5.jpg" },  
   { name: "5/20", src: "5.20 for jn.mp3", cover: "5.jpg" }, 

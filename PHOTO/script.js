@@ -10,7 +10,7 @@ const durationText = document.getElementById("duration");
 const playlist = [  
   { name: "HBR for JN (love version)", src: "HBR for JN (love version).mp3", cover: "5.jpg" }, 
   { name: "HBR for JN (soft version)", src: "HBR for JN (soft version).mp3", cover: "5.jpg" }, 
-  { name: "LOVE equation", src: "love equation.mp3", cover: "5.jpg" },
+  { name: "LOVE equation", src: "love equation.mp3", cover: "6.jpg" },
   { name: "You Are My Light", src: "You Are My Light.mp3", cover: "5.jpg" }, 
   { name: "Graduation photo", src: "graduation photo.mp3", cover: "5.jpg" }, 
   { name: "OH ! baby~~", src: "oh baby.mp3", cover: "5.jpg" },

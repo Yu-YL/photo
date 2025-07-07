@@ -7,7 +7,12 @@ const seekBar = document.getElementById("seekBar");
 const currentTimeText = document.getElementById("currentTime");
 const durationText = document.getElementById("duration");
 
-const playlist = [ 
+const playlist = [  
+  { name: "HBR for JN (love version)", src: "HBR for JN (love version).mp3", cover: "5.jpg" }, 
+  { name: "HBR for JN (soft version)", src: "HBR for JN (soft version).mp3", cover: "5.jpg" }, 
+  { name: "LOVE equation", src: "love equation.mp3", cover: "5.jpg" },
+  { name: "You Are My Light", src: "You Are My Light.mp3", cover: "5.jpg" }, 
+  { name: "Graduation photo", src: "graduation photo.mp3", cover: "5.jpg" }, 
   { name: "OH ! baby~~", src: "oh baby.mp3", cover: "5.jpg" },
   { name: "Happy 1st Anniversary", src: "for JN.mp3", cover: "5.jpg" },
   { name: "3.14", src: "3.14 song.mp3", cover: "5.jpg" },  
